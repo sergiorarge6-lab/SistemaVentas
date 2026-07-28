@@ -1,0 +1,27 @@
+## Visual Studio
+.vs/
+*.user
+*.suo
+
+## Build
+bin/
+obj/
+
+## Rider
+.idea/
+
+## Logs
+*.log
+
+## Docker
+docker-compose.override.yml
+
+## SQL Server
+*.mdf
+*.ldf
+
+## NuGet
+*.nupkg
+
+## Publish
+publish/

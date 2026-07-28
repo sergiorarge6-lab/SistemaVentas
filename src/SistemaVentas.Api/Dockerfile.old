@@ -1,0 +1,36 @@
+# ---------- BUILD ----------
+FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
+
+WORKDIR /src
+
+# Copiamos primero la solución
+COPY SistemaVentas.sln .
+
+# Copiamos únicamente los proyectos
+COPY src/SistemaVentas.Api/SistemaVentas.Api.csproj src/SistemaVentas.Api/
+COPY src/SistemaVentas.Application/SistemaVentas.Application.csproj src/SistemaVentas.Application/
+COPY src/SistemaVentas.Domain/SistemaVentas.Domain.csproj src/SistemaVentas.Domain/
+COPY src/SistemaVentas.Infrastructure/SistemaVentas.Infrastructure.csproj src/SistemaVentas.Infrastructure/
+COPY tests/SistemaVentas.Tests/SistemaVentas.Tests.csproj tests/SistemaVentas.Tests/
+
+# Restauramos paquetes
+RUN dotnet restore SistemaVentas.sln
+
+# Ahora copiamos todo el código
+COPY . .
+
+# Publicamos la API
+WORKDIR /src/src/SistemaVentas.Api
+
+RUN dotnet publish -c Release -o /app/publish --no-restore
+
+# ---------- RUNTIME ----------
+FROM mcr.microsoft.com/dotnet/aspnet:9.0
+
+WORKDIR /app
+
+COPY --from=build /app/publish .
+
+EXPOSE 8080
+
+ENTRYPOINT ["dotnet", "SistemaVentas.Api.dll"]

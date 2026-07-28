@@ -1,0 +1,25 @@
+2026-07-27 19:48:55.902 -03:00 [INF] User profile is available. Using 'C:\Users\SERGIOR\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-07-27 19:48:56.163 -03:00 [INF] Request starting HTTP/2 GET https://localhost:44305/swagger/index.html - null null
+2026-07-27 19:48:56.208 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-07-27 19:48:56.208 -03:00 [INF] Hosting environment: Development
+2026-07-27 19:48:56.208 -03:00 [INF] Content root path: C:\Proyectos\SistemaVentas\src\SistemaVentas.Api
+2026-07-27 19:48:56.927 -03:00 [INF] Request finished HTTP/2 GET https://localhost:44305/swagger/index.html - 200 null text/html;charset=utf-8 769.6673ms
+2026-07-27 19:48:56.952 -03:00 [INF] Request starting HTTP/2 GET https://localhost:44305/_framework/aspnetcore-browser-refresh.js - null null
+2026-07-27 19:48:56.952 -03:00 [INF] Request starting HTTP/2 GET https://localhost:44305/_vs/browserLink - null null
+2026-07-27 19:48:56.956 -03:00 [INF] Request finished HTTP/2 GET https://localhost:44305/_framework/aspnetcore-browser-refresh.js - 200 16519 application/javascript; charset=utf-8 2.8992ms
+2026-07-27 19:48:57.044 -03:00 [INF] Request finished HTTP/2 GET https://localhost:44305/_vs/browserLink - 200 null text/javascript; charset=UTF-8 91.6937ms
+2026-07-27 19:48:57.123 -03:00 [INF] Request starting HTTP/2 GET https://localhost:44305/swagger/v1/swagger.json - null null
+2026-07-27 19:48:57.140 -03:00 [INF] Request finished HTTP/2 GET https://localhost:44305/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 15.4345ms
+2026-07-27 19:52:22.364 -03:00 [INF] Aplicación SistemaVentas iniciada.
+2026-07-27 19:52:22.647 -03:00 [INF] User profile is available. Using 'C:\Users\SERGIOR\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-07-27 19:52:22.804 -03:00 [INF] Request starting HTTP/2 GET https://localhost:44305/swagger/index.html - null null
+2026-07-27 19:52:22.837 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-07-27 19:52:22.838 -03:00 [INF] Hosting environment: Development
+2026-07-27 19:52:22.838 -03:00 [INF] Content root path: C:\Proyectos\SistemaVentas\src\SistemaVentas.Api
+2026-07-27 19:52:23.006 -03:00 [INF] Request finished HTTP/2 GET https://localhost:44305/swagger/index.html - 200 null text/html;charset=utf-8 196.2864ms
+2026-07-27 19:52:23.009 -03:00 [INF] Request starting HTTP/2 GET https://localhost:44305/_framework/aspnetcore-browser-refresh.js - null null
+2026-07-27 19:52:23.013 -03:00 [INF] Request starting HTTP/2 GET https://localhost:44305/_vs/browserLink - null null
+2026-07-27 19:52:23.017 -03:00 [INF] Request finished HTTP/2 GET https://localhost:44305/_framework/aspnetcore-browser-refresh.js - 200 16519 application/javascript; charset=utf-8 9.3006ms
+2026-07-27 19:52:23.054 -03:00 [INF] Request finished HTTP/2 GET https://localhost:44305/_vs/browserLink - 200 null text/javascript; charset=UTF-8 41.2714ms
+2026-07-27 19:52:23.091 -03:00 [INF] Request starting HTTP/2 GET https://localhost:44305/swagger/v1/swagger.json - null null
+2026-07-27 19:52:23.106 -03:00 [INF] Request finished HTTP/2 GET https://localhost:44305/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 13.6961ms

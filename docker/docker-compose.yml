@@ -1,0 +1,22 @@
+services:
+
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sistemaventas-sql
+
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_PID: "Developer"
+      MSSQL_SA_PASSWORD: "Password123!"
+
+    ports:
+      - "1433:1433"
+
+    volumes:
+      - sqlserver_data:/var/opt/mssql
+      - D:\back_sql:/var/opt/mssql/backup
+
+    restart: unless-stopped
+
+volumes:
+  sqlserver_data:
