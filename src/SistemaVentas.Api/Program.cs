@@ -14,6 +14,10 @@ using SistemaVentas.Infrastructure.Repositories;
 using SistemaVentas.Infrastructure.Security;
 using System.Text;
 
+using FluentValidation;
+using SistemaVentas.Application.Validators;
+
+
 //lo pongo antes del builder para que capture los mensajes del arranque de la aplicacion
 Log.Logger = new LoggerConfiguration()
 
@@ -97,10 +101,35 @@ builder.Services.AddHostedService<PedidoBackgroundService>();
 
 builder.Services.AddAuthorization();
 
-
 builder.Services.AddControllers();
 
-builder.Services.AddHealthChecks();
+//hay que poner uno, el resto no hace falta
+builder.Services.AddValidatorsFromAssemblyContaining<CrearProductoValidator>();
+
+//para el versionado de apis ///////////////
+builder.Services.AddApiVersioning(options =>
+{
+    options.DefaultApiVersion = new Asp.Versioning.ApiVersion(1, 0);
+
+    options.AssumeDefaultVersionWhenUnspecified = true;
+
+    //agrega unos headers
+    options.ReportApiVersions = true;
+});
+
+builder.Services.AddApiVersioning()
+    .AddApiExplorer(options =>
+    {
+        options.GroupNameFormat = "'v'VVV";
+        options.SubstituteApiVersionInUrl = true;
+    });
+
+//////////////////////////////////////////
+
+builder.Services
+    .AddHealthChecks()
+    .AddDbContextCheck<SistemaVentasDbContext>(
+        name: "SQL Server");
 
 //para IMemoryCache
 builder.Services.AddMemoryCache();

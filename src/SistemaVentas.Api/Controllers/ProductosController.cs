@@ -1,5 +1,7 @@
 ﻿// Prueba Git - Rama feature/busqueda-productos
 // Cambio realizado en la rama A
+using Asp.Versioning;
+using FluentValidation;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SistemaVentas.Application.DTOs;
@@ -9,18 +11,20 @@ using SistemaVentas.Domain.Entities;
 
 
 [ApiController]
-[Route("api/[controller]")]
+[ApiVersion("1.0")]
+[Route("api/v{version:apiVersion}/[controller]")]
 public class ProductosController : ControllerBase
 {
     private readonly IProductoService _service;
     private readonly ILogger<ProductosController> _logger;
+    private readonly IValidator<CrearProductoDto> _validator;
 
 
-
-    public ProductosController(IProductoService service, ILogger<ProductosController> logger)
+    public ProductosController(IProductoService service, ILogger<ProductosController> logger, IValidator<CrearProductoDto> validator)
     {
         _service = service;
         _logger = logger;
+        _validator = validator;
     }
 
     [HttpGet]   
@@ -64,7 +68,16 @@ public class ProductosController : ControllerBase
     [HttpPost]
     public async Task<ActionResult> Agregar(CrearProductoDto dto)
     {
-            _logger.LogInformation(
+
+        var validationResult =
+            await _validator.ValidateAsync(dto);
+
+        if (!validationResult.IsValid)
+        {
+            return BadRequest(validationResult.Errors);
+        }
+
+        _logger.LogInformation(
         "Creando producto {Codigo}",
         dto.Codigo);
 
